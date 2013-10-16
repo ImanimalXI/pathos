@@ -1,6 +1,6 @@
 #Pathos
 ====================
-![Pathos](https://github.com/ImanimalXI/pathos/raw/dev/img/pathos.png)
+![Pathos](https://github.com/ImanimalXI/pathos/raw/develop/dev/img/pathos.png)
 
 
 The purpose of this project is to create a space to showcase and test design frames for web applications.
@@ -52,7 +52,7 @@ Here's a few things I'd like to fix and add:
 * fonts placed locally in project
 
 ### Future updates
-* (On load ist för timeout vid project load)
+* (On load ist fï¿½r timeout vid project load)
 * Developer info page in Example/Demo and Readme file
 * Web dev checklist check - http://webdevchecklist.com/
 * Devices / Projects in a select tag
