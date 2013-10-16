@@ -11,7 +11,7 @@ module.exports = function(grunt) {
         // our environments.
         BASE_PATH: '../',
         DEVELOPMENT_PATH: '../dev/',
-        PRODUCTION_PATH: '../prod_<%= grunt.template.today("yyyymmdd") %>/',
+        PRODUCTION_PATH: '../prod_<%= grunt.template.today("yyyymmddhhmmss") %>/',
 
         // A code block that will be added to all our minified code files.
         // Gets the name and version from the above loaded 'package.json' file.
