@@ -1,0 +1,68 @@
+<html>
+<head>
+	<title>Pathos</title>
+	<link rel="stylesheet" href="css/shell.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+	<meta charset="utf-8">
+    <script data-main="js/main" src="js/require-min.js"></script>
+</head>
+<body class="body">
+<div class="wrapper">
+
+	<div class="index">
+        <div class="icon-list toggle"></div>
+        <h2 class="client">Projects</h2>
+        <!--<select name="">
+            <option value="">Test 1</option>
+        </select>-->
+        <ul class="list projects"></ul>
+        <h2 class="">Pages</h2>
+        <ul class="list pages"></ul>
+        <h2 class="">Devices</h2>
+        <ul class="list devices"></ul>
+		<ul class="list">
+			<li><a href="#" class="link chrome">Toggle Device Chrome</a></li>
+			<li><a href="#" class="link css">Toggle CSS</a></li>
+			<li><a href="#" class="link comments">Hide Comments</a></li>
+			<li><a href="#" class="link all">Show All</a></li>
+			<li><a href="#" class="link play">Slideshow</a></li>
+		</ul>
+        <div>
+            <label for="">Load frames from url</label>
+            <input type="text" class="external" value="http://"/>
+            <input type="submit" class="load" value="LOAD"/>
+
+            <!--<form method="POST" action="upload.js" style="visibility: hidden">
+                <label for="">Upload file</label>
+                <input type="file" class="internal"/>
+                <input type="submit"/>
+            </form>-->
+        </div>
+	</div>
+
+	<div class="section">
+		<div class="device">
+            <iframe src="" frameborder="0"></iframe>
+		</div>
+		<div class="label"></div>
+        <div class="comment" style="display: none"></div>
+        <div class="meta" style="display: none"></div>
+	</div>
+
+    <div class="inspector">
+        <input class="filter" type="" placeholder="filter css"/>
+        <div class="rules">
+        </div>
+    </div>
+
+    <div class="notification" style="display: none"></div>
+
+    <footer>
+        <span class="logo"></span>
+       <!-- footer info-->
+    </footer>
+
+</div>
+</body>
+</html>
