@@ -3,7 +3,7 @@ define(function(){
     return [
         {
             "name": "iPhone",
-            "viewport" : {'width':'317','height':'480','top':'21','left':'0'},
+            "viewport" : {'width':'320','height':'480','top':'21','left':'0'},
             "chrome" : {'width':'380','height':'744'},
             "img": "img/device/iphone4.png"
         },

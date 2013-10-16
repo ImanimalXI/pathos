@@ -25,8 +25,7 @@ Just design your project by creating regular html markup, apply your css and sta
 The Pathos pages are then created by adding a data-frame attribute to the wrapping element you want to highlight. Like this...
 `div data-frame='{"title":"Example"}'`
    
-That's the basics and pretty much all you need to apply in order to create the separation. You can then add additional javascript if you want to demonstrate different states depending on user actions. Actually you can continue to implement the other parts of the application.
-
+That's the basics and pretty much all you need to apply in order to create the separation. You can then add additional javascript if you want to demonstrate different states depending on user actions. Actually you can continue to implement the other parts of the application from here and use use this tool as an overview.
 
 ##Install & Setup
 ====================
@@ -39,8 +38,8 @@ The new folder should at least include a index.html (for the project markup) and
 ##TODO / Contribute
 ====================
 Add any ideas, issues or suggestion to the Git project issue tracker.
-Visit the wiki for ideas that are listed for upcoming updates and feel free to pick any topic if you would like to contribute
-to the project development. This code is still in it's infancy. There's lots to do.
+Visit the git project pages to check for ideas that are listed for upcoming updates and feel free to pick any topic if you would like to contribute
+to the project development.This code is still in it's infancy. There's lots to do.
 
 Here's a few things I'd like to fix and add:
 
@@ -59,10 +58,11 @@ Here's a few things I'd like to fix and add:
 * Random device on load
 * Settings json (slideshow framerate, theme, colors)
 * Highlight selected page in nav
+* Improved error handling
 * Glypth icons
 * key commands
 * more data-frame parameters
-* Noteboard
+* Note board
 * Nav link tooltip (for controls)
 * check if link when getting data from package.json
 * Document on how to add device
