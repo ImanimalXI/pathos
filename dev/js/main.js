@@ -34,6 +34,7 @@ requirejs(["jquery","deviceData","projects","lang/en"], function ($, devices, pr
                        "INDEX_TOGGLE": $('.index .toggle'),
                        "IFRAME": $('iframe'),
                        "FRAME_PAGE": $('iframe'),
+                       "FRAME_DEVICE": $('.device'),
                        "FRAME_LABEL":  $('.section .label'),
                        "DEVICES": $(".index .list.devices"),
                        "DEVICE": $(".list.devices a"),
@@ -57,8 +58,7 @@ requirejs(["jquery","deviceData","projects","lang/en"], function ($, devices, pr
                        "SLIDESHOW_PLAY": $(".list .play"),
                        "SHOW_ALL": $(".list .all"),
                        "SHOW_FRAME": $(".list .frame")
-                   }
-               ;
+                   };
             },
 
             hidePages: function() {
@@ -407,10 +407,12 @@ requirejs(["jquery","deviceData","projects","lang/en"], function ($, devices, pr
 
                 Pathos.elements.CHROME_TOOGLE.bind("click", function(e) {
                     e.preventDefault();
-                    if($('.device').hasClass('hide')){
-                        $('.device').removeClass('hide');
+                    if(Pathos.elements.FRAME_DEVICE.hasClass('hide')){
+                        Pathos.elements.FRAME_DEVICE.removeClass('hide');
+                        Pathos.elements.IFRAME.removeClass('chrome');
                     } else {
-                        $('.device').addClass('hide');
+                        Pathos.elements.IFRAME.addClass('chrome');
+                        Pathos.elements.FRAME_DEVICE.addClass('hide');
                     }
                 });
 
