@@ -15,8 +15,10 @@ This tools aim:
 * CSS Overview
 * Desktop tool for testing responsive design, different viewports and media queries
 
-##Demo
+##Demo /
 ---
+
+A demo of the latest version with a basic example is available at the <a href="http://imanimalxi.github.io/pathos">Pathos</a> page.
 
 ##How it works
 ---
