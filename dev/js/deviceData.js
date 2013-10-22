@@ -14,12 +14,6 @@ define(function(){
             "img": "img/device/Galaxy_S4_black.png"
         },
         {
-            "name": "iPad (Landscape)",
-            "viewport" : {'width':'1024','height':'768','top':'0','left':'0'},
-            "chrome" : {'width':'1024','height':'768'},
-            "img": ""
-        },
-        {
             "name": "Acer A1-810",
             "os": "Android",
             "version": "4.2.2",

@@ -2,7 +2,7 @@ requirejs.config({
     baseUrl: 'js/'
 });
 
-requirejs(["jquery","deviceData","projects","lang/en"], function ($, devices, projects, LANG) {
+requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function ($, devices, projects, LANG, Showdown) {
 
 
     $(function() {
@@ -25,6 +25,7 @@ requirejs(["jquery","deviceData","projects","lang/en"], function ($, devices, pr
                 Pathos.getProjects();
                 Pathos.getProject();
                 Pathos.toogleInspector();
+                Pathos.getLog();
             },
 
             setSelectors: function() {
@@ -37,7 +38,7 @@ requirejs(["jquery","deviceData","projects","lang/en"], function ($, devices, pr
                        "FRAME_DEVICE": $('.device'),
                        "FRAME_LABEL":  $('.section .label'),
                        "DEVICES": $(".index .list.devices"),
-                       "DEVICE": $(".list.devices a"),
+                       "DEVICE": $(".list.devices"),
                        "PROJECTS":  $(".index .list.projects"),
                        "SECTION":  $(".device"),
                        "META":  $(".meta"),
@@ -57,8 +58,22 @@ requirejs(["jquery","deviceData","projects","lang/en"], function ($, devices, pr
                        "COMMENTS_TOGGLE": $(".list .comments"),
                        "SLIDESHOW_PLAY": $(".list .play"),
                        "SHOW_ALL": $(".list .all"),
-                       "SHOW_FRAME": $(".list .frame")
+                       "SHOW_FRAME": $(".list .frame"),
+                       "RELEASE_LOG": $(".log"),
+                       "RELEASE_LOG_LINK": $("footer .link")
                    };
+            },
+
+            getLog: function() {
+                $.ajax({
+                    url : "log.md",
+                    dataType: "text",
+                    success : function (data) {
+                        var converter = new Showdown.converter(),
+                            htmlText = converter.makeHtml(data);
+                        Pathos.elements.RELEASE_LOG.html(htmlText).hide();
+                    }
+                });
             },
 
             hidePages: function() {
@@ -69,11 +84,12 @@ requirejs(["jquery","deviceData","projects","lang/en"], function ($, devices, pr
                 var device;
                 var list = Pathos.elements.DEVICES;
                 list.innerHTML='';
+
                 for(var i=0; i<devices.length; i++) {
                     device = devices[i];
 
                     if(device) {
-                        list.append('<li><a href="#" class="link chrome" data-target="'+device.name+'">'+device.name+'</a></li>');
+                        list.append('<option class="link chrome" value="'+device.name+'" data-target="'+device.name+'">'+device.name+'</option>');
                     }
 
                 }
@@ -92,6 +108,13 @@ requirejs(["jquery","deviceData","projects","lang/en"], function ($, devices, pr
                         Pathos.elements.SECTION.css({'width':devices[i].chrome.width,'height':devices[i].chrome.height});
                         Pathos.elements.IFRAME.css({'width':devices[i].viewport.width,'height':devices[i].viewport.height,'top':devices[i].viewport.top,'left':devices[i].viewport.left});
                         Pathos.elements.SECTION.css({'background':'url('+devices[i].img+')'}).show();
+                        if( devices[i].img !== '' ) {
+                            //Pathos.elements.IFRAME.removeClass('chrome');
+                            Pathos.elements.FRAME_DEVICE.removeClass('hide');
+                        } else {
+                            Pathos.elements.IFRAME.addClass('chrome');
+                            //Pathos.elements.FRAME_DEVICE.addClass('hide');
+                        }
                     }
 
                 }
@@ -138,7 +161,7 @@ requirejs(["jquery","deviceData","projects","lang/en"], function ($, devices, pr
                                     Pathos.elements.IFRAME.load( Pathos.SETTINGS_PROJECTS_PATH + project.name + '/index.html', function(){
                                         Pathos.getPages();
                                         Pathos.hidePages();
-                                        Pathos.elements.IFRAME.contents().find("[data-frame]").first().show();
+                                        Pathos.showPage($(".list .frame").first());
                                         Pathos.getCss();
                                     });
                                 }, 1000 );
@@ -222,17 +245,33 @@ requirejs(["jquery","deviceData","projects","lang/en"], function ($, devices, pr
             },
 
             getPages: function() {
-                var pages =Pathos.elements.IFRAME.contents().find("[data-frame]");
-                var list = $(".index .list.pages");
+                var pages = Pathos.elements.IFRAME.contents().find("[data-frame]"),
+                    frames = 0,
+                    container = '',
+                    list = $(".index div.projects");
 
                 list.empty();
-                Pathos.elements.IFRAME.contents().find("[data-frame]").each(function(index) {
-                    var data = $(this).data('frame');
-                    if(data) {
-                        list.append('<li><a href="#" class="link frame" data-target="'+data.title+'">'+data.title+'</a></li>');
-                    }
+                frames = Pathos.elements.IFRAME.contents().find("[data-frame]").length;
+                if(frames>0) {
+                    container = (frames>10) ? document.createElement("select") : document.createElement("ul");
+                    list.append(container);
+                    container.setAttribute('class', 'list pages');
+                    container = $(".index .list.pages");
+                    Pathos.elements.IFRAME.contents().find("[data-frame]").each(function(index) {
+                        var data = $(this).data('frame');
+                        if(data) {
+                            if(frames>10) {
+                                container.append('<option value="'+data.title+'" data-target="'+data.title+'">'+data.title+'</option>');
+                            }
+                            else {
+                                container.append('<li><a href="#" class="link frame" data-target="'+data.title+'">'+data.title+'</a></li>');
+                            }
+                        }
+                    });
 
-                });
+                } else {
+                    Pathos.showError(LANG[0].ERROR_LOAD)
+                }
             },
 
            /* getProjectData: function(url) {
@@ -338,9 +377,9 @@ requirejs(["jquery","deviceData","projects","lang/en"], function ($, devices, pr
 
             activateButtons: function() {
 
-                Pathos.elements.DEVICE.live("click", function(e) {
+                Pathos.elements.DEVICE.live("change", function(e) {
                     e.preventDefault();
-                    Pathos.setDevice($(this).text());
+                    Pathos.setDevice($(this).find('option:selected').text());
                 });
 
                 Pathos.elements.PROJECT.live("click", function(e) {
@@ -414,6 +453,16 @@ requirejs(["jquery","deviceData","projects","lang/en"], function ($, devices, pr
                         Pathos.elements.IFRAME.addClass('chrome');
                         Pathos.elements.FRAME_DEVICE.addClass('hide');
                     }
+                });
+
+                Pathos.elements.RELEASE_LOG_LINK.bind("click", function(e) {
+                    e.preventDefault();
+                    Pathos.elements.RELEASE_LOG.toggle();
+                });
+
+                Pathos.elements.RELEASE_LOG.bind("click", function(e) {
+                    e.preventDefault();
+                    Pathos.elements.RELEASE_LOG.toggle();
                 });
 
                /* Page.elements.INDEX_TOOGLE.bind("click", function(e) {
