@@ -186,7 +186,7 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function 
             },
 
             showError: function(err) {
-                Pathos.elements.NOTIFICATION.text(err).show(200).delay(5000).hide(50);
+                Pathos.elements.NOTIFICATION.text(err).show(200).delay(10000).hide(50);
             },
 
             showPage: function(el) {
@@ -245,32 +245,37 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function 
             },
 
             getPages: function() {
-                var pages = Pathos.elements.IFRAME.contents().find("[data-frame]"),
-                    frames = 0,
-                    container = '',
-                    list = $(".index div.projects");
+                try {
+                    var pages = Pathos.elements.IFRAME.contents().find("[data-frame]"),
+                        frames = 0,
+                        container = '',
+                        list = $(".index div.projects");
 
-                list.empty();
-                frames = Pathos.elements.IFRAME.contents().find("[data-frame]").length;
-                if(frames>0) {
-                    container = (frames>10) ? document.createElement("select") : document.createElement("ul");
-                    list.append(container);
-                    container.setAttribute('class', 'list pages');
-                    container = $(".index .list.pages");
-                    Pathos.elements.IFRAME.contents().find("[data-frame]").each(function(index) {
-                        var data = $(this).data('frame');
-                        if(data) {
-                            if(frames>10) {
-                                container.append('<option value="'+data.title+'" data-target="'+data.title+'">'+data.title+'</option>');
+                    list.empty();
+                    frames = Pathos.elements.IFRAME.contents().find("[data-frame]").length;
+                    if(frames>0) {
+                        container = (frames>10) ? document.createElement("select") : document.createElement("ul");
+                        list.append(container);
+                        container.setAttribute('class', 'list pages');
+                        container = $(".index .list.pages");
+                        Pathos.elements.IFRAME.contents().find("[data-frame]").each(function(index) {
+                            var data = $(this).data('frame');
+                            if(data) {
+                                if(frames>10) {
+                                    container.append('<option value="'+data.title+'" data-target="'+data.title+'">'+data.title+'</option>');
+                                }
+                                else {
+                                    container.append('<li><a href="#" class="link frame" data-target="'+data.title+'">'+data.title+'</a></li>');
+                                }
                             }
-                            else {
-                                container.append('<li><a href="#" class="link frame" data-target="'+data.title+'">'+data.title+'</a></li>');
-                            }
-                        }
-                    });
+                        });
 
-                } else {
-                    Pathos.showError(LANG[0].ERROR_LOAD)
+                    } else {
+                        Pathos.showError(LANG[0].ERROR_LOAD)
+                    }
+                } catch (err) {
+                    Pathos.showError(LANG[0].ERROR_LOAD + ' ' + err);
+
                 }
             },
 

@@ -2015,5 +2015,3 @@ define(function(){
         }
     ];
 });
-
-

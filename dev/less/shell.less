@@ -1,13 +1,27 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300);
 
-/* Mixin */
-@font-base: 'Roboto slab','sans-serif';
+@import "lesshat";
+
+@font-family-sans-serif:  'Roboto slab','sans-serif';
+@font-family-serif:       serif;
+@font-family-monospace:   Monaco, Menlo, Consolas, "Courier New", monospace;
+@font-family-base:        @font-family-sans-serif;
+@font-family-hub:         @font-family-sans-serif;
+
+@font-base: @font-family-sans-serif;
+
+@font-size-base:          14px;
+@font-size-large:         @font-size-base * 1.25;
+@font-size-small:         @font-size-base * 0.85;
+@font-size-mini:          @font-size-base * 0.75;
 
 @color_base: rgba(101,100,119,1);
 @color_complement1: spin(@color_base, 180);
 @color_complement2: darken(spin(@color_base, 180), 5%);
 @color_lighten1: lighten(@color_base, 15%);
 @color_lighten2: lighten(@color_base, 30%);
+
+@color-background: white;
 
 /* Implementation */
 .color_1   {color: @color_base;}
@@ -88,11 +102,6 @@
    -o-animation: fadein .7s; /* Opera */
 }
 
-.size(@w: 0, @h: 0){
-  width: @w;
-  height: @h;
-}
-
 
 .body {
   margin:0;
@@ -108,7 +117,7 @@ h2 {
   margin: 5px 0 0 0;
   padding: 0;
   color: @color_complement1;
-  font-size: 18px;
+  font-size: @font-size-large;
 }
 
 select {
@@ -118,8 +127,8 @@ select {
   padding: 5px 10px 20px 10px;
   margin: 5px 0;
   border-bottom: 1px dashed rgb(139, 138, 157);
-  font-family: 'Roboto slab','sans-serif';
-  font-size: 16px;
+  font-family: @font-base;
+
   width: 100%;
 }
 
@@ -146,7 +155,7 @@ select {
 .page {
   .size(320px,470px);
   position: relative;
-  background: white;
+  background: @color-background;
   top:-4px;
   left:2px;
 }
@@ -154,7 +163,7 @@ select {
 label {
   display: block;
   font-weight:bold;
-  font-size: 18px;
+  font-size: @font-size-large;
   color: @color_complement1;
 }
 
@@ -163,7 +172,7 @@ input {
   .size(90%,25px);
   padding: 0 3px;
   font-family:  @font-base;
-  font-size: 14px;
+  font-size: @font-family-base;
   margin: 5px 0;
   color: @color_lighten2;
   &[type=submit] {
@@ -181,6 +190,7 @@ input {
 .link {
   color: @color_base;
   margin: 5px 0 10px 0;
+  font-size: @font-size-base;
 }
 
 .log {
@@ -216,10 +226,9 @@ input {
     position: absolute;
     top: 1%;
     left: 92%;
-    cursor: pointer;
+    color: @color_base;
   }
 }
-
 
 .list {
   list-style: none;
@@ -232,7 +241,7 @@ iframe {
   .size(317px,480px);
   position: relative;
   top: 21px;
-  border-radius: 4px;
+  .border-radius(4px);
   overflow: hidden;
   margin:0;
   padding: 0;
@@ -253,21 +262,21 @@ iframe {
   width: 30%;
   color:white;
   padding: 10px;
-  font-size: 11px;
+  font-size: @font-size-small;
   border-left: 1px dashed @color_complement2;
   overflow-y: scroll;
   max-height: 100%;
 }
 
-
 .comment {
   position: absolute;
   top: 10%;
   .size(100px,50%);
+  .box(center,center);
   left: 22%;
   border-right: 1px solid @color_lighten2;
-  .box(center,center);
   font-style: italic;
+  background: fadeout(@color-background, 20%);
   color: @color_complement1;
   padding: 40px 5px 40px 0;
 
@@ -312,7 +321,7 @@ iframe {
   top: 0;
   right: 0;
   word-break: break-all;
-  font-size: 14px;
+  font-size: @font-size-base;
   background: fadeout(@color_lighten2,5%);
   color: @color_base;
   padding: 0 12px 5px;
@@ -329,7 +338,7 @@ footer {
   width: 95%;
   .size(95%,40px);
   margin: 200px 0 0 0;
-  font-size: 10px;
+  font-size: @font-size-mini;
   padding: 5px 5px 20px 5px;
   text-align: right;
 
@@ -337,8 +346,7 @@ footer {
     background: @image-logo;
     background-repeat: no-repeat;
     background-size: 10%;
-    width: 80px;
-    height: 80px;
+    .size(80px);
     display: inline-block;
   }
 }
