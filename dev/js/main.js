@@ -231,8 +231,10 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function 
             showComment: function(comment) {
                 if(comment && comment!=='') {
                     Pathos.elements.COMMENTS.text(comment).show();
+                    Pathos.elements.COMMENTS_TOGGLE.innerText=LANG[0].COMMENTS_SHOW;
                 } else {
                     Pathos.elements.COMMENTS.hide(100);
+                    Pathos.elements.COMMENTS_TOGGLE.innerText=LANG[0].COMMENTS_HIDE;
                 }
             },
 
