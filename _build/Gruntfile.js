@@ -11,7 +11,7 @@ module.exports = function(grunt) {
         // our environments.
         BASE_PATH: '../',
         DEVELOPMENT_PATH: '../dev/',
-        PRODUCTION_PATH: '../prod_<%= grunt.template.today("yyyymmddhhmmss") %>/',
+        PRODUCTION_PATH: '../prod_<%= grunt.template.today("yyyymmddhhmm") %>/',
 
         // A code block that will be added to all our minified code files.
         // Gets the name and version from the above loaded 'package.json' file.
@@ -182,6 +182,9 @@ module.exports = function(grunt) {
 
                     // Copy the font folder from dev/font/ to prod/font/.
                     { expand: true, cwd: '<%= DEVELOPMENT_PATH %>', src: ['font/**'], dest: '<%= PRODUCTION_PATH %>' },
+
+                     // Copy the relase log from dev/font/ to prod/font/.
+                    { expand: true, cwd: '<%= DEVELOPMENT_PATH %>', src: ['log.md'], dest: '<%= PRODUCTION_PATH %>' },
 
                 ]
             }
