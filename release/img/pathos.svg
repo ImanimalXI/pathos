@@ -10,122 +10,109 @@
 	<!ENTITY ns_custom "http://ns.adobe.com/GenericCustomNamespace/1.0/">
 	<!ENTITY ns_adobe_xpath "http://ns.adobe.com/XPath/1.0/">
 ]>
-<svg version="1.1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="595.28px"
-	 height="841.89px" viewBox="0 0 595.28 841.89" enable-background="new 0 0 595.28 841.89" xml:space="preserve">
+<svg version="1.1" id="Lager_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="595.279px"
+	 height="841.89px" viewBox="0 0 595.279 841.89" enable-background="new 0 0 595.279 841.89" xml:space="preserve">
 <metadata>
 	<sfw  xmlns="&ns_sfw;">
 		<slices></slices>
-		<sliceSourceBounds  x="-7898.663" y="-8613" bottomLeftOrigin="true" width="16388.812" height="16383.299"></sliceSourceBounds>
+		<sliceSourceBounds  bottomLeftOrigin="true" width="8426.481" height="8465.482" y="171.018" x="-7885.78"></sliceSourceBounds>
 	</sfw>
 </metadata>
 <g id="Stödlinjer" display="none">
 </g>
 <g id="Lager_3" display="none">
 	
-		<image display="inline" overflow="visible" width="612" height="612" xlink:href="../../../../Ankarpunkt/Grafik/Logos/råmaterial/551305495160302350_8719105.png"  transform="matrix(0.7131 0 0 0.7131 64.6929 210.4111)">
+		<image display="inline" overflow="visible" enable-background="new    " width="612" height="612" xlink:href="../../../../Ankarpunkt/Grafik/Logos/råmaterial/551305495160302350_8719105.png"  transform="matrix(0.7131 0 0 0.7131 64.6931 210.4116)">
 	</image>
 </g>
-<g id="Lager_1" display="none">
-	<rect x="64.693" y="336.91" display="inline" fill="#CCCECB" width="436.406" height="309.743"/>
-	<polygon display="inline" fill="#AEAAA9" points="379.059,454.03 306.441,427.067 345.691,337 432.191,337 	"/>
-	<polygon display="inline" fill="#8E9A96" points="294.691,454.03 219.358,425.218 258.941,336.849 345.691,337 	"/>
+<g id="Lager_1_1_" display="none">
+	<rect x="64.693" y="336.91" display="inline" fill="#CCCECB" width="436.406" height="309.744"/>
+	<polygon display="inline" fill="#AEAAA9" points="379.059,454.031 306.441,427.068 345.691,337 432.191,337 	"/>
+	<polygon display="inline" fill="#8E9A96" points="294.691,454.031 219.358,425.218 258.941,336.849 345.691,337 	"/>
 	<polyline display="inline" fill="#E3947E" points="258.941,336.849 175.124,337 42.191,646.806 120.104,646.806 258.941,336.849 	
 		"/>
-	<polygon display="inline" fill="#656477" points="468.339,543.836 395.117,516.787 335.475,646.624 422.141,646.653 	"/>
-	<polygon display="inline" fill="#656477" points="539.704,364.127 472.693,340 431.777,432.265 501.099,454.838 	"/>
-	<line display="inline" fill="#656477" x1="465.191" y1="653.971" x2="520.586" y2="653.971"/>
-	<polyline display="inline" fill="#656477" points="465.191,646.653 501.099,560.309 501.099,646.653 	"/>
+	<polygon display="inline" fill="#656477" points="468.339,543.835 395.116,516.787 335.475,646.625 422.141,646.654 	"/>
+	<polygon display="inline" fill="#656477" points="539.703,364.127 472.693,340 431.777,432.265 501.099,454.837 	"/>
+	<line display="inline" fill="none" x1="465.191" y1="653.97" x2="520.586" y2="653.97"/>
+	<polyline display="inline" fill="#656477" points="465.191,646.654 501.099,560.308 501.099,646.654 	"/>
 </g>
 <g id="Lager_1_kopia" display="none">
-	<rect x="64.693" y="336.91" display="inline" fill="#CCCECB" width="436.406" height="309.743"/>
-	<polygon display="inline" fill="#AEAAA9" points="360.966,495.688 294.426,454.743 345.691,337 432.191,337 	"/>
-	<polygon display="inline" fill="#8E9A96" points="276.599,495.688 206.133,454.743 258.941,336.849 345.691,337 	"/>
+	<rect x="64.693" y="336.91" display="inline" fill="#CCCECB" width="436.406" height="309.744"/>
+	<polygon display="inline" fill="#AEAAA9" points="360.966,495.687 294.426,454.744 345.691,337 432.191,337 	"/>
+	<polygon display="inline" fill="#8E9A96" points="276.599,495.687 206.133,454.744 258.941,336.849 345.691,337 	"/>
 	<polyline display="inline" fill="#E3947E" points="258.941,336.849 175.124,337 42.191,646.806 120.104,646.806 258.941,336.849 	
 		"/>
-	<polygon display="inline" fill="#656477" points="468.339,543.836 395.117,516.787 335.475,646.624 422.141,646.653 	"/>
-	<polygon display="inline" fill="#656477" points="539.704,364.127 472.693,340 431.777,432.265 501.099,459 	"/>
-	<line display="inline" fill="#656477" x1="465.191" y1="653.971" x2="520.586" y2="653.971"/>
-	<polyline display="inline" fill="#656477" points="465.191,646.653 501.099,560.309 501.099,646.653 	"/>
+	<polygon display="inline" fill="#656477" points="468.339,543.835 395.116,516.787 335.475,646.625 422.141,646.654 	"/>
+	<polygon display="inline" fill="#656477" points="539.703,364.127 472.693,340 431.777,432.265 501.099,459 	"/>
+	<line display="inline" fill="none" x1="465.191" y1="653.97" x2="520.586" y2="653.97"/>
+	<polyline display="inline" fill="#656477" points="465.191,646.654 501.099,560.308 501.099,646.654 	"/>
 </g>
 <g id="Lager_1_kopia_2" display="none">
 	<rect x="93.336" y="338.856" display="inline" fill="#CCCECB" width="388.291" height="309.743"/>
-	<polygon display="inline" fill="#8E9A96" points="322.293,491.672 247.794,460.288 302.214,338.795 388.964,338.946 	"/>
-	<polyline display="inline" fill="#E3947E" points="302.214,338.795 218.396,338.946 85.464,648.752 153.667,670.428 
+	<polygon display="inline" fill="#8E9A96" points="322.293,491.671 247.794,460.289 302.214,338.795 388.964,338.946 	"/>
+	<polyline display="inline" fill="#E3947E" points="302.214,338.795 218.396,338.946 85.464,648.751 153.667,670.427 
 		292.505,360.471 	"/>
-	<polygon display="inline" fill="#656477" points="434.479,545.782 369.33,518.733 316.264,648.57 393.375,648.6 	"/>
-	<polygon display="inline" fill="#656477" points="497.977,366.073 438.873,341.163 400.748,436.572 462.987,462.791 	"/>
-	<polyline display="inline" fill="#656477" points="449.679,648.6 481.627,562.255 481.627,648.6 	"/>
+	<polygon display="inline" fill="#656477" points="434.479,545.783 369.329,518.734 316.264,648.57 393.375,648.599 	"/>
+	<polygon display="inline" fill="#656477" points="497.977,366.073 438.872,341.163 400.747,436.572 462.987,462.791 	"/>
+	<polyline display="inline" fill="#656477" points="449.679,648.599 481.627,562.255 481.627,648.599 	"/>
 	
-		<line fill="none" stroke="#9B9A9A" stroke-width="0.9433" stroke-miterlimit="10" x1="499.678" y1="478.247" x2="-6.677" y2="264.939"/>
+		<line display="inline" fill="none" stroke="#9B9A9A" stroke-width="0.9433" stroke-miterlimit="10" x1="499.678" y1="478.248" x2="-6.677" y2="264.939"/>
 	
-		<line fill="none" stroke="#9B9A9A" stroke-width="0.9433" stroke-miterlimit="10" x1="540.659" y1="384.77" x2="34.304" y2="171.461"/>
+		<line display="inline" fill="none" stroke="#9B9A9A" stroke-width="0.9433" stroke-miterlimit="10" x1="540.658" y1="384.77" x2="34.304" y2="171.461"/>
 </g>
 <g id="Lager_1_kopia_3" display="none">
 	<rect x="93.336" y="338.856" display="inline" fill="#CCCECB" width="388.291" height="309.743"/>
-	<polygon display="inline" fill="#5B5C5A" points="322.293,491.672 247.794,460.288 302.214,338.795 388.964,338.946 	"/>
-	<polyline display="inline" fill="#AA4843" points="302.214,338.795 218.396,338.946 85.464,648.752 153.667,670.428 
+	<polygon display="inline" fill="#5B5C5A" points="322.293,491.671 247.794,460.289 302.214,338.795 388.964,338.946 	"/>
+	<polyline display="inline" fill="#AA4843" points="302.214,338.795 218.396,338.946 85.464,648.751 153.667,670.427 
 		292.505,360.471 	"/>
-	<polygon display="inline" fill="#3D3346" points="434.479,545.782 369.33,518.733 316.264,648.57 393.375,648.6 	"/>
-	<polygon display="inline" fill="#3D3346" points="497.977,366.073 438.873,341.163 400.748,436.572 462.987,462.791 	"/>
-	<polyline display="inline" fill="#3D3346" points="449.679,648.6 481.627,562.255 481.627,648.6 	"/>
+	<polygon display="inline" fill="#3D3346" points="434.479,545.783 369.329,518.734 316.264,648.57 393.375,648.599 	"/>
+	<polygon display="inline" fill="#3D3346" points="497.977,366.073 438.872,341.163 400.747,436.572 462.987,462.791 	"/>
+	<polyline display="inline" fill="#3D3346" points="449.679,648.599 481.627,562.255 481.627,648.599 	"/>
 	
-		<line fill="none" stroke="#685A5C" stroke-width="0.9433" stroke-miterlimit="10" x1="499.678" y1="478.247" x2="-6.677" y2="264.939"/>
+		<line display="inline" fill="none" stroke="#685A5C" stroke-width="0.9433" stroke-miterlimit="10" x1="499.678" y1="478.248" x2="-6.677" y2="264.939"/>
 	
-		<line fill="none" stroke="#685A5C" stroke-width="0.9433" stroke-miterlimit="10" x1="540.659" y1="384.77" x2="34.304" y2="171.461"/>
+		<line display="inline" fill="none" stroke="#685A5C" stroke-width="0.9433" stroke-miterlimit="10" x1="540.658" y1="384.77" x2="34.304" y2="171.461"/>
 </g>
 <g id="Lager_1_kopia_4">
 	<g>
-		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="106.0215" y1="391.4463" x2="523.3262" y2="626.6647">
-			<stop  offset="0.4404" style="stop-color:#FFFFFF"/>
-			<stop  offset="0.7787" style="stop-color:#E6E6E5"/>
+		
+			<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="107.0769" y1="452.2339" x2="545.8464" y2="266.2407" gradientTransform="matrix(1 0 0 -1 -8.3599 865.9443)">
+			<stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0"/>
+			<stop  offset="0.4404" style="stop-color:#FFFFFF;stop-opacity:0.5"/>
+			<stop  offset="0.7787" style="stop-color:#E6E6E5;stop-opacity:0.7"/>
 			<stop  offset="1" style="stop-color:#B0B1B0"/>
 		</linearGradient>
 		<rect x="93.336" y="338.856" fill="url(#SVGID_1_)" width="388.291" height="309.743"/>
 	</g>
 	<g opacity="0.8">
-		
-			<image overflow="visible" opacity="0.5" width="190" height="202" xlink:href="6F310647F0926840.png"  transform="matrix(1 0 0 1 228 319)">
-		</image>
 		<g>
-			<polygon fill="#5B5C5A" points="322.293,491.672 247.794,460.288 302.214,338.795 388.964,338.946 			"/>
+			<polygon fill="#5B5C5A" points="322.293,491.671 247.794,460.289 302.214,338.795 388.964,338.946 			"/>
 		</g>
 	</g>
 	<g opacity="0.8">
-		
-			<image overflow="visible" opacity="0.5" width="266" height="381" xlink:href="6F310647F0926847.png"  transform="matrix(1 0 0 1 66 319)">
-		</image>
 		<g>
-			<polyline fill="#AA4843" points="302.214,338.795 218.396,338.946 85.464,648.752 153.667,670.428 292.505,360.471 			"/>
+			<polyline fill="#AA4843" points="302.214,338.795 218.396,338.946 85.464,648.751 153.667,670.427 292.505,360.471 			"/>
 		</g>
 	</g>
 	<g opacity="0.9">
-		
-			<image overflow="visible" opacity="0.5" width="167" height="179" xlink:href="6F310647F0926841.png"  transform="matrix(1 0 0 1 297 499)">
-		</image>
 		<g>
-			<polygon fill="#3D3346" points="434.479,545.782 369.33,518.733 316.264,648.57 393.375,648.6 			"/>
+			<polygon fill="#3D3346" points="434.479,545.783 369.329,518.734 316.264,648.57 393.375,648.599 			"/>
 		</g>
 	</g>
 	<g opacity="0.9">
-		
-			<image overflow="visible" opacity="0.5" width="146" height="170" xlink:href="6F310647F0926843.png"  transform="matrix(1 0 0 1 381 322)">
-		</image>
 		<g>
-			<polygon fill="#3D3346" points="497.977,366.073 438.873,341.163 400.748,436.572 462.987,462.791 			"/>
+			<polygon fill="#3D3346" points="497.977,366.073 438.872,341.163 400.747,436.572 462.987,462.791 			"/>
 		</g>
 	</g>
 	<g opacity="0.9">
-		
-			<image overflow="visible" opacity="0.5" width="81" height="135" xlink:href="6F310647F092684E.png"  transform="matrix(1 0 0 1 430 543)">
-		</image>
 		<g>
-			<polyline fill="#3D3346" points="449.679,648.6 481.627,562.255 481.627,648.6 			"/>
+			<polyline fill="#3D3346" points="449.679,648.599 481.627,562.255 481.627,648.599 			"/>
 		</g>
 	</g>
 	
-		<line display="none" fill="none" stroke="#685A5C" stroke-width="0.9433" stroke-miterlimit="10" x1="499.678" y1="478.247" x2="-6.677" y2="264.939"/>
+		<line display="none" fill="none" stroke="#685A5C" stroke-width="0.9433" stroke-miterlimit="10" x1="499.678" y1="478.248" x2="-6.677" y2="264.939"/>
 	
-		<line display="none" fill="none" stroke="#685A5C" stroke-width="0.9433" stroke-miterlimit="10" x1="540.659" y1="384.77" x2="34.304" y2="171.461"/>
+		<line display="none" fill="none" stroke="#685A5C" stroke-width="0.9433" stroke-miterlimit="10" x1="540.658" y1="384.77" x2="34.304" y2="171.461"/>
 </g>
 </svg>
