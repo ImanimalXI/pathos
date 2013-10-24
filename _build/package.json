@@ -1,7 +1,7 @@
 {
   "name": "Pathos",
-  "version": "0.0.1",
-  "description": "Online presentation frame tool",
+  "version": "0.0.2",
+  "description": "HTML / CSS prototyping tool",
   "developedBy": "ImanimalXI",
   "devDependencies": {
     "grunt": "~0.4.1",
