@@ -197,7 +197,7 @@ input {
   position: fixed;
   width: 50%;
   top: 15%;
-  height: 50%;
+  height: auto;
   left: 25%;
   padding: 3%;
   border: 1px solid @color_complement1;
@@ -205,6 +205,17 @@ input {
 
   h2 {
     color: @color_lighten2;
+  }
+}
+
+.keys {
+  .log;
+  border: 1px solid @color_complement2;
+  background: fadeout(@color_complement1, 10%);
+
+  p {
+    display: inline-block;
+    margin: 0 10px;
   }
 }
 
@@ -218,7 +229,7 @@ input {
   overflow-x: scroll;
   height: 100%;
   &.hidden {
-    left: -280px;
+    left: -245px;
   }
   .toggle {
     content: '';
@@ -232,7 +243,9 @@ input {
 
 .label {
   display: block;
-  margin: 15px 0 0 0;
+  margin: 0;
+  position: relative;
+  bottom: -40px;
 }
 
 .list {

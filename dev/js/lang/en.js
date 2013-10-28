@@ -1,6 +1,6 @@
 define(function(){
 
-    return [
+    return LANG =
         {
             "UPLOAD": "Upload file",
             "SLIDESHOW_PLAY": "Slideshow",
@@ -9,7 +9,5 @@ define(function(){
             "COMMENTS_HIDE": "Hide Comments",
             "ERROR_LOAD": "Not able to load project",
             "ERROR_NO_FRAMES": "There's no frames listed in page"
-        }
-
-    ];
+        };
 });

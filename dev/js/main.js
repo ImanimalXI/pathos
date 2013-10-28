@@ -2,7 +2,7 @@ requirejs.config({
     baseUrl: 'js/'
 });
 
-requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function ($, devices, projects, LANG, Showdown) {
+requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"], function ($, devices, projects, LANG, SETTINGS, Showdown) {
 
 
     $(function() {
@@ -15,7 +15,7 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function 
             
             currentProject: null,
             selectors: null,
-            slideshowTime: 3000,
+            slideshowTime: (SETTINGS) ? parseInt(SETTINGS.SLIDESHOW.INTERVAL) : 3000,
 
             init: function() {
                 Pathos.setSelectors();
@@ -26,11 +26,13 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function 
                 Pathos.getProject();
                 Pathos.toogleInspector();
                 Pathos.getLog();
+                Pathos.printKeyCommands();
             },
 
             setSelectors: function() {
                Pathos.elements =
                    {
+                       "HTML": $('html'),
                        "INDEX": $('.index'),
                        "INDEX_TOGGLE": $('.index .toggle'),
                        "IFRAME": $('iframe'),
@@ -39,6 +41,7 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function 
                        "FRAME_LABEL":  $('.section .label'),
                        "DEVICES": $(".index .list.devices"),
                        "DEVICE": $(".list.devices"),
+                       "DEVICE_SELECT_OPTIONS": $('select.list.devices option'),
                        "PROJECTS":  $(".index .list.projects"),
                        "SECTION":  $(".device"),
                        "META":  $(".meta"),
@@ -60,7 +63,8 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function 
                        "SHOW_ALL": $(".list .all"),
                        "SHOW_FRAME": $(".list .frame"),
                        "RELEASE_LOG": $(".log"),
-                       "RELEASE_LOG_LINK": $("footer .link")
+                       "RELEASE_LOG_LINK": $("footer .link"),
+                       "KEY_COMMANDS": $(".keys")
                    };
             },
 
@@ -81,18 +85,32 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function 
             },
 
             getDevices: function() {
-                var device;
-                var list = Pathos.elements.DEVICES;
+                var device,
+                    list = Pathos.elements.DEVICES,
+                    length = devices.length,
+                    selected = '',
+                    random = (SETTINGS.DEVICE_LOAD.toLowerCase()==="random") ? Math.floor((Math.random()*length)) : -1;
+
                 list.innerHTML='';
 
-                for(var i=0; i<devices.length; i++) {
+                for(var i=0; i<length; i++) {
                     device = devices[i];
-
+                    selected = (random == i) ? "selected" : "";
                     if(device) {
-                        list.append('<option class="link chrome" value="'+device.name+'" data-target="'+device.name+'">'+device.name+'</option>');
+                        list.append('<option class="link chrome" '+ selected +' value="'+device.name+'" data-target="'+device.name+'">'+device.name+'</option>');
                     }
-
                 }
+                Pathos.setDevice(Pathos.elements.DEVICE.find('option:selected').text());
+            },
+
+            randomDevice: function() {
+                var length = devices.length,
+                    random =  Math.floor((Math.random()*length)) ;
+                //TODO map to elements
+                //DEVICE_SELECT_OPTIONS
+                Pathos.setDevice($('select.list.devices option')[random].innerText);
+                $('select.list.devices option[selected]').removeAttr('selected');
+                $('select.list.devices option')[random].setAttribute('selected','selected');
             },
 
             setDevice: function(device) {
@@ -140,7 +158,7 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function 
                     var project = {'name':'','external':'','location':''};
                     project.name=$(Pathos.elements.PROJECTS_LIST_ITEMS).first().text();
                     project.external="false";
-                    project.location= Pathos.SETTINGS_PROJECTS_PATH + project.name;
+                    project.location= SETTINGS.PROJECTS_PATH + project.name;
                 } else {
                     var project = element.data('project');
                 }
@@ -149,19 +167,26 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function 
                     //TODO don't load if current project
                     try
                     {
-                        $.getJSON( Pathos.SETTINGS_PROJECTS_PATH + project.name + "/package.json", function () {
+                        $.getJSON( SETTINGS.PROJECTS_PATH + project.name + "/package.json", function () {
                         })
                             .success(function (data) {
                                 if (data) {
                                     //Page.elements.CLIENT_LABEL.text(data.name);
                                     Pathos.setMeta(data);
                                 }
-                                Pathos.elements.IFRAME.attr('src', Pathos.SETTINGS_PROJECTS_PATH + project.name + '/index.html');
+                                Pathos.elements.IFRAME.attr('src', SETTINGS.PROJECTS_PATH + project.name + '/index.html');
                                 window.setTimeout(function(){
-                                    Pathos.elements.IFRAME.load( Pathos.SETTINGS_PROJECTS_PATH + project.name + '/index.html', function(){
+                                    Pathos.elements.IFRAME.load( SETTINGS.PROJECTS_PATH + project.name + '/index.html', function(){
                                         Pathos.getPages();
                                         Pathos.hidePages();
-                                        Pathos.showPage($(".list .frame").first());
+
+                                        if(SETTINGS.PAGE_RANDOM !== "true" ) {
+                                            Pathos.showPage($(".list .frame").first());
+                                        } else {
+                                            var rnd = Math.floor((Math.random()*$(".list .frame").length));
+                                            Pathos.showPage($(".list .frame")[rnd]);
+                                        }
+
                                         Pathos.getCss();
                                     });
                                 }, 1000 );
@@ -176,7 +201,7 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function 
                 } else if(project.external) {
                     Pathos.getFromUrl(project.location);
                 } else {
-                    Pathos.showError(LANG[0].ERROR_LOAD);
+                    Pathos.showError(LANG.ERROR_LOAD);
                 }
 
             },
@@ -190,7 +215,13 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function 
             },
 
             showPage: function(el) {
-                var page = el.data('target');
+                //Todo rewrite to handle data attribute fetch better
+                try {
+                    var page = el.data('target');
+                } catch(err) {
+                    var page = el.getAttribute('data-target');
+                }
+
                 if(page) {
                     Pathos.elements.IFRAME.contents().find("[data-frame]").each(function(index) {
                             var data = $(this).data('frame');
@@ -231,10 +262,10 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function 
             showComment: function(comment) {
                 if(comment && comment!=='') {
                     Pathos.elements.COMMENTS.text(comment).show();
-                    Pathos.elements.COMMENTS_TOGGLE.innerText=LANG[0].COMMENTS_SHOW;
+                    Pathos.elements.COMMENTS_TOGGLE.innerText=LANG.COMMENTS_SHOW;
                 } else {
                     Pathos.elements.COMMENTS.hide(100);
-                    Pathos.elements.COMMENTS_TOGGLE.innerText=LANG[0].COMMENTS_HIDE;
+                    Pathos.elements.COMMENTS_TOGGLE.innerText=LANG.COMMENTS_HIDE;
                 }
             },
 
@@ -273,10 +304,10 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function 
                         });
 
                     } else {
-                        Pathos.showError(LANG[0].ERROR_LOAD)
+                        Pathos.showError(LANG.ERROR_LOAD)
                     }
                 } catch (err) {
-                    Pathos.showError(LANG[0].ERROR_LOAD + ' ' + err);
+                    Pathos.showError(LANG.ERROR_LOAD + ' ' + err);
 
                 }
             },
@@ -382,6 +413,22 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function 
                 }
             },
 
+            printKeyCommands: function() {
+                var text = '';
+                for(var key in SETTINGS.KEYS) {
+                    text += "<p> <strong>" + SETTINGS.KEYS[key].key + ":</strong>&nbsp;<span>" + SETTINGS.KEYS[key].description + "</span></p>";
+                }
+                Pathos.elements.KEY_COMMANDS.html(text);
+            },
+
+            handleKeyEvent: function(code) {
+                for(var key in SETTINGS.KEYS) {
+                    if(code === parseInt(key) ) {
+                        eval(SETTINGS.KEYS[key].cmd);
+                    }
+                }
+            },
+
             activateButtons: function() {
 
                 Pathos.elements.DEVICE.live("change", function(e) {
@@ -407,10 +454,10 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function 
                 Pathos.elements.COMMENTS_TOGGLE.bind("click", function(e) {
                     e.preventDefault();
                     Pathos.toogleComments();
-                    if(this.innerHTML===LANG[0].COMMENTS_SHOW) {
-                        this.innerHTML=LANG[0].COMMENTS_HIDE;
+                    if(this.innerHTML===LANG.COMMENTS_SHOW) {
+                        this.innerHTML=LANG.COMMENTS_HIDE;
                     } else {
-                        this.innerHTML=LANG[0].COMMENTS_SHOW;
+                        this.innerHTML=LANG.COMMENTS_SHOW;
                     }
                 });
 
@@ -431,7 +478,6 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function 
                 Pathos.elements.LOAD_EXTERNAL_URL.bind("click", function(e) {
                     e.preventDefault();
                     Pathos.getFromUrl(Pathos.elements.INPUT_EXTERNAL_URL.val());
-                    //update inspector with css info
                 });
 
                 /*Page.elements.UPLOAD_FILE_SUBMIT.on('click', function(ev) {
@@ -467,6 +513,11 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function 
                     Pathos.elements.RELEASE_LOG.toggle();
                 });
 
+                Pathos.elements.KEY_COMMANDS.bind("click", function(e) {
+                    e.preventDefault();
+                    Pathos.elements.KEY_COMMANDS.toggle();
+                });
+
                 Pathos.elements.RELEASE_LOG.bind("click", function(e) {
                     e.preventDefault();
                     Pathos.elements.RELEASE_LOG.toggle();
@@ -496,13 +547,18 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function 
                     e.preventDefault();
                     $(".section").hide().first().show().addClass('selected');
 
-                    if(this.innerHTML===LANG[0].SLIDESHOW_PLAY) {
+                    if(this.innerHTML===LANG.SLIDESHOW_PLAY) {
                         Pathos.play();
-                        this.innerHTML=LANG[0].SLIDESHOW_STOP;
+                        this.innerHTML=LANG.SLIDESHOW_STOP;
                     } else {
                         Pathos.stop();
-                        this.innerHTML=LANG[0].SLIDESHOW_PLAY;
+                        this.innerHTML=LANG.SLIDESHOW_PLAY;
                     }
+                });
+
+                Pathos.elements.HTML.bind("keypress", function(e) {
+                    //e.preventDefault();
+                    Pathos.handleKeyEvent(e.which);
                 });
             }
 
