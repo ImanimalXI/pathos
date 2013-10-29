@@ -1,8 +1,8 @@
 {
   "name": "Pathos",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "HTML / CSS prototyping tool",
-  "developedBy": "ImanimalXI",
+  "developedBy": "imanimalXI",
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-requirejs": "~0.4.0",
