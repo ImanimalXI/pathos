@@ -11,7 +11,7 @@ module.exports = function(grunt) {
         // our environments.
         BASE_PATH: '../',
         DEVELOPMENT_PATH: '../dev/',
-        PRODUCTION_PATH: '../prod_<%= grunt.template.today("yyyy-mm-ddhh_mm") %>/',
+        PRODUCTION_PATH: '../prod_<%= grunt.template.today("yyyy-mm-dd_hh_mm") %>/',
 
         // A code block that will be added to all our minified code files.
         // Gets the name and version from the above loaded 'package.json' file.
@@ -169,7 +169,7 @@ module.exports = function(grunt) {
                     { expand: true, cwd: '<%= DEVELOPMENT_PATH %>', src: 'favicon.ico', dest: '<%= PRODUCTION_PATH %>' } ,
 
                     // Copy css file dev/ to prod/.
-                    { expand: true, cwd: '<%= DEVELOPMENT_PATH %>', src: 'css/shell.css', dest: '<%= PRODUCTION_PATH %>' } ,
+                    { expand: true, cwd: '<%= DEVELOPMENT_PATH %>', src: 'css/**', dest: '<%= PRODUCTION_PATH %>' } ,
 
                     // Copy js minified app and requirejs file from dev to prod/.
                     { expand: true, cwd: '<%= DEVELOPMENT_PATH %>', src: 'js/app.min.js', dest: '<%= PRODUCTION_PATH %>' } ,
