@@ -53,28 +53,35 @@ Here's a few things I'd like to fix and add:
 * fonts placed locally in project
 
 ### Future updates
-* (On load ist f�r timeout vid project load)
 * Developer info page in Example/Demo and Readme file
 * Web dev checklist check - http://webdevchecklist.com/
-* Devices / Projects in a select tag
-* Random device on load
 * Settings json (slideshow framerate, theme, colors)
 * Highlight selected page in nav
 * Improved error handling
 * Glypth icons
-* key commands
 * more data-frame parameters
 * Note board
 * Nav link tooltip (for controls)
 * check if link when getting data from package.json
 * Document on how to add device
 * Themes
-* Release log
 * Bandy about / Hash out function
 * upload file
-* Footer info
 * cross browser support
+* User agent switch
+* Custom viewport editor
+* Additional device info, vieports etc
 
 ##Development How to work with the repository
 ---
 TBA
+
+###External Tool
+The current development tool stack for development
+
+* Grunt (Javascript task runner), http://gruntjs.com/
+* JQuery
+* Showdown.js (for markdown parsing), https://github.com/coreyti/showdown
+* Require.js (javascript file loader), http://requirejs.org/
+* LessCSS, (CSS preprocessor), http://lesscss.org/
+* LessHat (Less mixins), http://lesshat.com/

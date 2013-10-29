@@ -1,5 +1,10 @@
 ##Pathos Release Log
 
+###version (0.0.3)
+* Settings file
+* Key commands
+* Various minor fixes
+
 ###version (0.0.2)
 * A set of devices, around 280
 * Devices and projects loaded in select tags

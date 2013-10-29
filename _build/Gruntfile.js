@@ -11,7 +11,7 @@ module.exports = function(grunt) {
         // our environments.
         BASE_PATH: '../',
         DEVELOPMENT_PATH: '../dev/',
-        PRODUCTION_PATH: '../prod_<%= grunt.template.today("yyyymmddhhmm") %>/',
+        PRODUCTION_PATH: '../prod_<%= grunt.template.today("yyyy-mm-ddhh_mm") %>/',
 
         // A code block that will be added to all our minified code files.
         // Gets the name and version from the above loaded 'package.json' file.
@@ -171,8 +171,9 @@ module.exports = function(grunt) {
                     // Copy css file dev/ to prod/.
                     { expand: true, cwd: '<%= DEVELOPMENT_PATH %>', src: 'css/shell.css', dest: '<%= PRODUCTION_PATH %>' } ,
 
-                    // Copy js lib from dev to prod/.
-                    { expand: true, cwd: '<%= DEVELOPMENT_PATH %>', src: 'js/**', dest: '<%= PRODUCTION_PATH %>' } ,
+                    // Copy js minified app and requirejs file from dev to prod/.
+                    { expand: true, cwd: '<%= DEVELOPMENT_PATH %>', src: 'js/app.min.js', dest: '<%= PRODUCTION_PATH %>' } ,
+                    { expand: true, cwd: '<%= DEVELOPMENT_PATH %>', src: 'js/require-min.js', dest: '<%= PRODUCTION_PATH %>' } ,
 
                     // Copy the image folder from dev/images/ to prod/images/.
                     { expand: true, cwd: '<%= DEVELOPMENT_PATH %>', src: ['img/**'], dest: '<%= PRODUCTION_PATH %>' },
