@@ -65,8 +65,8 @@ define(function(){
                 "77" : { "key" : "m" , "cmd" : "Pathos.elements.COMMENTS_TOGGLE.trigger('click')", "description" : "Toggle Page Comments"},
                 "109" : { "key" : "M" , "cmd" : "Pathos.elements.COMMENTS_TOGGLE.trigger('click')", "description" : "Toggle Page Comments"},
 
-                "78" : { "key" : "n" , "cmd" : "Pathos.elements.COMMENTS_TOGGLE.trigger('click')", "description" : "Toggle project info"},
-                "110" : { "key" : "N" , "cmd" : "Pathos.elements.COMMENTS_TOGGLE.trigger('click')", "description" : "Toggle project info"},
+                "70" : { "key" : "f" , "cmd" : "Pathos.elements.META.toggle()", "description" : "Toggle project info"},
+                "102" : { "key" : "F" , "cmd" : "Pathos.elements.META.toggle()", "description" : "Toggle project info"},
 
                 "82" : { "key" : "r" , "cmd" : "Pathos.elements.RELEASE_LOG.toggle()", "description" : "Toggle Release Log"},
                 "114" : { "key" : "R" , "cmd" : "Pathos.elements.RELEASE_LOG.toggle()", "description" : "Toggle Release Log"}
