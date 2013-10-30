@@ -68,6 +68,9 @@ define(function(){
                 "70" : { "key" : "f" , "cmd" : "Pathos.elements.META.toggle()", "description" : "Toggle project info"},
                 "102" : { "key" : "F" , "cmd" : "Pathos.elements.META.toggle()", "description" : "Toggle project info"},
 
+                "79" : { "key" : "o" , "cmd" : "Pathos.deviceRotate()", "description" : "Rotate device"},
+                "111" : { "key" : "O" , "cmd" : "Pathos.deviceRotate()", "description" : "Toggle device"},
+
                 "82" : { "key" : "r" , "cmd" : "Pathos.elements.RELEASE_LOG.toggle()", "description" : "Toggle Release Log"},
                 "114" : { "key" : "R" , "cmd" : "Pathos.elements.RELEASE_LOG.toggle()", "description" : "Toggle Release Log"}
 

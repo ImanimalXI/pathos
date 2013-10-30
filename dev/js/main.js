@@ -58,6 +58,7 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
                        "INSPECTOR_FILTER": $(".inspector .filter"),
                        "COMMENTS": $(".comment"),
                        "CHROME_TOOGLE": $(".list .chrome"),
+                       "ROTATE": $(".list .rotate"),
                        "COMMENTS_TOGGLE": $(".list .comments"),
                        "SLIDESHOW_PLAY": $(".list .play"),
                        "SHOW_ALL": $(".list .all"),
@@ -101,6 +102,16 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
                     }
                 }
                 Pathos.setDevice(Pathos.elements.DEVICE.find('option:selected').text());
+            },
+
+            deviceRotate: function() {
+                var newChromeWidth = Pathos.elements.SECTION.css('height'),
+                    newChromeHeight = Pathos.elements.SECTION.css('width'),
+                    newViewportWidtht = Pathos.elements.IFRAME.css('height'),
+                    newViewportHeight = Pathos.elements.IFRAME.css('width');
+
+                Pathos.elements.SECTION.css({'width': newChromeWidth,'height': newChromeHeight});
+                Pathos.elements.IFRAME.css({'width': newViewportWidtht,'height':newViewportHeight});
             },
 
             randomDevice: function() {
@@ -541,6 +552,11 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
                 Pathos.elements.INSPECTOR_FILTER.bind("keyup", function(e) {
                     e.preventDefault();
                     Pathos.filterCss($(this).val());
+                });
+
+                Pathos.elements.ROTATE.bind("click", function(e) {
+                    e.preventDefault();
+                    Pathos.deviceRotate();
                 });
 
                 Pathos.elements.SLIDESHOW_PLAY.bind("click", function(e) {

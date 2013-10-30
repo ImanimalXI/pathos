@@ -1,5 +1,8 @@
 ##Pathos Release Log
 
+###version (0.0.4)
+* Device orientation
+
 ###version (0.0.3)  (2013-10-29)
 * Settings file
 * Key commands
