@@ -63,6 +63,7 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
                        "SLIDESHOW_PLAY": $(".list .play"),
                        "SHOW_ALL": $(".list .all"),
                        "SHOW_FRAME": $(".list .frame"),
+                       "SELECTED_FRAME": $(".frame.selected"),
                        "RELEASE_LOG": $(".log"),
                        "RELEASE_LOG_LINK": $("footer .link"),
                        "KEY_COMMANDS": $(".keys")
@@ -240,6 +241,8 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
                                 $(this).slideDown(200);
                                 Pathos.elements.FRAME_LABEL.text(data.title);
                                 Pathos.showComment(data.comment);
+                                $(Pathos.elements.SELECTED_FRAME.selector).removeClass('selected');
+                                el.addClass('selected');
                             } else {
                                 $(this).hide();
                             }
