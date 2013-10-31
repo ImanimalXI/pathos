@@ -5,8 +5,6 @@ define(function(){
     return SETTINGS =
 
         {
-            // THEME
-
             //Load random device on Load, set to random or the name of the device
             "DEVICE_LOAD": "random",
 
@@ -31,6 +29,12 @@ define(function(){
              up = 38
              right = 39
              down = 40*/
+
+            THEMES : {
+
+                "ON_LOAD" : "beans",
+                "LIST" : [ "pathos", "beans"]
+            },
 
 
             "KEYS" : {
@@ -59,9 +63,6 @@ define(function(){
                 "72" : { "key" : "h" , "cmd" : "Pathos.elements.INDEX_TOGGLE.trigger('click')", "description" : "Toggle device chrome"},
                 "104" : { "key" : "H" , "cmd" : "Pathos.elements.INDEX_TOGGLE.trigger('click')", "description" : "Toggle device chrome"},
 
-                "83" : { "key" : "s" , "cmd" : "Pathos.elements.SLIDESHOW_PLAY.trigger('click')", "description" : "Toggle slideshow"},
-                "115" : { "key" : "S" , "cmd" : "Pathos.elements.SLIDESHOW_PLAY.trigger('click')", "description" : "Toggle slideshow"},
-
                 "77" : { "key" : "m" , "cmd" : "Pathos.elements.COMMENTS_TOGGLE.trigger('click')", "description" : "Toggle Page Comments"},
                 "109" : { "key" : "M" , "cmd" : "Pathos.elements.COMMENTS_TOGGLE.trigger('click')", "description" : "Toggle Page Comments"},
 
@@ -72,7 +73,13 @@ define(function(){
                 "111" : { "key" : "O" , "cmd" : "Pathos.deviceRotate()", "description" : "Toggle device"},
 
                 "82" : { "key" : "r" , "cmd" : "Pathos.elements.RELEASE_LOG.toggle()", "description" : "Toggle Release Log"},
-                "114" : { "key" : "R" , "cmd" : "Pathos.elements.RELEASE_LOG.toggle()", "description" : "Toggle Release Log"}
+                "114" : { "key" : "R" , "cmd" : "Pathos.elements.RELEASE_LOG.toggle()", "description" : "Toggle Release Log"},
+
+                "83" : { "key" : "s" , "cmd" : "Pathos.elements.SLIDESHOW_PLAY.trigger('click')", "description" : "Toggle slideshow"},
+                "115" : { "key" : "S" , "cmd" : "Pathos.elements.SLIDESHOW_PLAY.trigger('click')", "description" : "Toggle slideshow"},
+
+                "84" : { "key" : "t" , "cmd" : "Pathos.setTheme()", "description" : "Toggle theme"},
+                "116" : { "key" : "T" , "cmd" : "Pathos.setTheme()", "description" : "Toggle theme"}
 
             }
         };

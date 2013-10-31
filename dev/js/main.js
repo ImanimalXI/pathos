@@ -19,6 +19,8 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
 
             init: function() {
                 Pathos.setSelectors();
+                Pathos.getThemes();
+                Pathos.setTheme(SETTINGS.THEMES.ON_LOAD);
                 Pathos.activateButtons();
                 Pathos.getDevices();
                 Pathos.setDevice();
@@ -42,6 +44,7 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
                        "DEVICES": $(".index .list.devices"),
                        "DEVICE": $(".list.devices"),
                        "DEVICE_SELECT_OPTIONS": $('select.list.devices option'),
+                       "THEMES": $(".list.themes"),
                        "PROJECTS":  $(".index .list.projects"),
                        "SECTION":  $(".device"),
                        "META":  $(".meta"),
@@ -152,8 +155,9 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
             },
 
             getProjects: function() {
-                var project;
-                var list = Pathos.elements.PROJECTS;
+                var project,
+                    list = Pathos.elements.PROJECTS;
+
                 list.innerHTML='';
                 for(var i=0; i<projects.length; i++) {
                     project = projects[i];
@@ -439,7 +443,40 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
                 for(var key in SETTINGS.KEYS) {
                     if(code === parseInt(key) ) {
                         eval(SETTINGS.KEYS[key].cmd);
+                        //Pathos.constructor.call(SETTINGS.KEYS[key].cmd);
                     }
+                }
+            },
+
+            getThemes: function() {
+                var list = Pathos.elements.THEMES,
+                     themes = SETTINGS.THEMES.LIST;
+
+                list.innerHTML='';
+                for(var key in SETTINGS.THEMES.LIST) {
+                    list.append('<option value="" data-theme=' + JSON.stringify(themes[key]) + ' >'+ themes[key] +'</option>');
+                }
+            },
+
+            setTheme: function(theme) {
+                if(theme && $.inArray(theme, SETTINGS.THEMES.LIST) ) {
+                    document.querySelector('html').className=theme;
+                    Pathos.elements.THEMES.find('option[selected]').removeAttr('selected');
+                    Pathos.elements.THEMES.find('option').map(function(i, el) {
+                        if(el.text === theme) {
+                            $(el).attr('selected','selected').addClass('selected');
+                        }
+                    })
+                } else {
+                    //TODO query selector targeting option[selected] attribute instead
+                    var section = Pathos.elements.THEMES.find("option.selected"),
+                        next = Pathos.elements.THEMES.find("option.selected").next();
+                    if(next.length>0) {
+                        section.removeClass('selected').removeAttr('selected').next().addClass('selected').attr('selected','selected');
+                    } else {
+                        theme = Pathos.elements.THEMES.find('option').first().addClass('selected').attr('selected','selected').text();
+                    }
+                    document.querySelector('html').className=theme;
                 }
             },
 
@@ -448,6 +485,11 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
                 Pathos.elements.DEVICE.live("change", function(e) {
                     e.preventDefault();
                     Pathos.setDevice($(this).find('option:selected').text());
+                });
+
+                Pathos.elements.THEMES.live("change", function(e) {
+                    e.preventDefault();
+                    Pathos.setTheme($(this).find('option:selected').text());
                 });
 
                 Pathos.elements.PROJECT.live("click", function(e) {
