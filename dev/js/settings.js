@@ -18,6 +18,11 @@ define(function(){
 
                 "INTERVAL" : "3000"
             },
+
+            "HASH_OUT" : {
+                "INTERVAL" : "4000"
+            },
+
             //toggle next prev page
             //"37" : "",
             //"38" : "",
@@ -79,7 +84,10 @@ define(function(){
                 "115" : { "key" : "S" , "cmd" : "Pathos.elements.SLIDESHOW_PLAY.trigger('click')", "description" : "Toggle slideshow"},
 
                 "84" : { "key" : "t" , "cmd" : "Pathos.setTheme()", "description" : "Toggle theme"},
-                "116" : { "key" : "T" , "cmd" : "Pathos.setTheme()", "description" : "Toggle theme"}
+                "116" : { "key" : "T" , "cmd" : "Pathos.setTheme()", "description" : "Toggle theme"},
+
+                "85" : { "key" : "U" , "cmd" : "Pathos.hashOut()", "description" : "Hash out"},
+                "117" : { "key" : "u" , "cmd" : "Pathos.hashOut()", "description" : "Hash out"}
 
             }
         };

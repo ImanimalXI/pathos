@@ -21,6 +21,8 @@
 
   @color-background: white;
 
+  @transition-time: 3s;
+
   /* Implementation */
   .color_1   {color: @color_base;}
   .color_2   {color: @color_complement1;}
@@ -199,6 +201,8 @@
     overflow: hidden;
     margin:0;
     padding: 0;
+
+    -webkit-transition:all @transition-time;
 
     &.chrome {
       border: 4px solid gray;

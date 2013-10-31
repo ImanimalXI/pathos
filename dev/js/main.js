@@ -16,6 +16,7 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
             currentProject: null,
             selectors: null,
             slideshowTime: (SETTINGS) ? parseInt(SETTINGS.SLIDESHOW.INTERVAL) : 3000,
+            hashTime: (SETTINGS) ? parseInt(SETTINGS.HASH_OUT.INTERVAL) : 3000,
 
             init: function() {
                 Pathos.setSelectors();
@@ -456,6 +457,12 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
                 for(var key in SETTINGS.THEMES.LIST) {
                     list.append('<option value="" data-theme=' + JSON.stringify(themes[key]) + ' >'+ themes[key] +'</option>');
                 }
+            },
+
+            hashOut: function() {
+                Pathos.hashPlay=setInterval(function() {
+                    Pathos.randomDevice();
+                }, Pathos.hashTime);
             },
 
             setTheme: function(theme) {
