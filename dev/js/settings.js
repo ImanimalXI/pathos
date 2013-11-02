@@ -12,10 +12,14 @@ define(function(){
 
             "PROJECTS_PATH": "frames/",
 
+            //Orientation on load
+            "ORIENTATION" : "portrait",
+
             //"LANGUAGE": "en",
 
-            "SLIDESHOW" : {
+            "FIT_TO_VIEWPORT" : "true",
 
+            "SLIDESHOW" : {
                 "INTERVAL" : "3000"
             },
 
@@ -36,7 +40,6 @@ define(function(){
              down = 40*/
 
             THEMES : {
-
                 "ON_LOAD" : "beans",
                 "LIST" : [ "pathos", "beans"]
             },
