@@ -168,7 +168,6 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
                             Pathos.deviceRotate();
                         }
                     }
-
                 }
 
             },
@@ -647,6 +646,11 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
                 Pathos.UI.HTML.bind("keypress", function(e) {
                     //e.preventDefault();
                     Pathos.handleKeyEvent(e.which);
+                });
+
+                $(window).on("resize orientationChanged", function(e) {
+                    //e.preventDefault();
+                    Pathos.getDevices();
                 });
             }
 
