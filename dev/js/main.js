@@ -279,6 +279,7 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
             setMeta: function(data) {
                 var text = '';
                 Pathos.UI.META.text('').hide();
+                text += '<h3>Project info</h3>'
                 for (var key in data) {
                     if (data.hasOwnProperty(key)) {
                         if(typeof data[key] !== 'object' ) {
