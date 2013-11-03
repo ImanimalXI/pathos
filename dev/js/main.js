@@ -182,7 +182,7 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
                     project = projects[i];
 
                     if(project) {
-                        list.append('<li><a href="#" class="link project" data-project=' + JSON.stringify(project) + ' >'+project.name+'</a></li>');
+                        list.append("<li><a href='#' class='link project' data-project='" + JSON.stringify(project) + "' >" + project.name + "</a></li>");
                     }
 
                 }
