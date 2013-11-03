@@ -58,33 +58,33 @@ define(function(){
                 "56" : { "key" : "8" , "cmd" : 'Pathos.showPage($(".list .frame")[7])', "description" : "Show Page 8"},
                 "57" : { "key" : "9" , "cmd" : 'Pathos.showPage($(".list .frame")[8])', "description" : "Show Page 9"},
 
-                "63" : { "key" : "?" , "cmd" : "Pathos.elements.KEY_COMMANDS.toggle()", "description" : "Toggle Key commandsr"},
+                "63" : { "key" : "?" , "cmd" : "Pathos.UI.KEY_COMMANDS.toggle()", "description" : "Toggle Key commandsr"},
 
                 "67" : { "key" : "c" , "cmd" : "Pathos.toogleInspector()", "description" : "Toggle CSS Inspector"},
                 "99" : { "key" : "C" , "cmd" : "Pathos.toogleInspector()", "description" : "Toggle CSS Inspector"},
 
                 "100" : { "key" : "d" , "cmd" : "Pathos.randomDevice()", "description" : "Pick and display a random device"},
 
-                "73" : { "key" : "i" , "cmd" : "Pathos.elements.INDEX_TOGGLE.trigger('click')", "description" : "Toggle Left side Index"},
-                "105" : { "key" : "I" , "cmd" : "Pathos.elements.INDEX_TOGGLE.trigger('click')", "description" : "Toggle Left side Index"},
+                "73" : { "key" : "i" , "cmd" : "Pathos.UI.INDEX_TOGGLE.trigger('click')", "description" : "Toggle Left side Index"},
+                "105" : { "key" : "I" , "cmd" : "Pathos.UI.INDEX_TOGGLE.trigger('click')", "description" : "Toggle Left side Index"},
 
-                "72" : { "key" : "h" , "cmd" : "Pathos.elements.INDEX_TOGGLE.trigger('click')", "description" : "Toggle device chrome"},
-                "104" : { "key" : "H" , "cmd" : "Pathos.elements.INDEX_TOGGLE.trigger('click')", "description" : "Toggle device chrome"},
+                "72" : { "key" : "h" , "cmd" : "Pathos.UI.INDEX_TOGGLE.trigger('click')", "description" : "Toggle device chrome"},
+                "104" : { "key" : "H" , "cmd" : "Pathos.UI.INDEX_TOGGLE.trigger('click')", "description" : "Toggle device chrome"},
 
-                "77" : { "key" : "m" , "cmd" : "Pathos.elements.COMMENTS_TOGGLE.trigger('click')", "description" : "Toggle Page Comments"},
-                "109" : { "key" : "M" , "cmd" : "Pathos.elements.COMMENTS_TOGGLE.trigger('click')", "description" : "Toggle Page Comments"},
+                "77" : { "key" : "m" , "cmd" : "Pathos.UI.COMMENTS_TOGGLE.trigger('click')", "description" : "Toggle Page Comments"},
+                "109" : { "key" : "M" , "cmd" : "Pathos.UI.COMMENTS_TOGGLE.trigger('click')", "description" : "Toggle Page Comments"},
 
-                "70" : { "key" : "f" , "cmd" : "Pathos.elements.META.toggle()", "description" : "Toggle project info"},
-                "102" : { "key" : "F" , "cmd" : "Pathos.elements.META.toggle()", "description" : "Toggle project info"},
+                "70" : { "key" : "f" , "cmd" : "Pathos.UI.META.toggle()", "description" : "Toggle project info"},
+                "102" : { "key" : "F" , "cmd" : "Pathos.UI.META.toggle()", "description" : "Toggle project info"},
 
                 "79" : { "key" : "o" , "cmd" : "Pathos.deviceRotate()", "description" : "Rotate device"},
                 "111" : { "key" : "O" , "cmd" : "Pathos.deviceRotate()", "description" : "Toggle device"},
 
-                "82" : { "key" : "r" , "cmd" : "Pathos.elements.RELEASE_LOG.toggle()", "description" : "Toggle Release Log"},
-                "114" : { "key" : "R" , "cmd" : "Pathos.elements.RELEASE_LOG.toggle()", "description" : "Toggle Release Log"},
+                "82" : { "key" : "r" , "cmd" : "Pathos.UI.RELEASE_LOG.toggle()", "description" : "Toggle Release Log"},
+                "114" : { "key" : "R" , "cmd" : "Pathos.UI.RELEASE_LOG.toggle()", "description" : "Toggle Release Log"},
 
-                "83" : { "key" : "s" , "cmd" : "Pathos.elements.SLIDESHOW_PLAY.trigger('click')", "description" : "Toggle slideshow"},
-                "115" : { "key" : "S" , "cmd" : "Pathos.elements.SLIDESHOW_PLAY.trigger('click')", "description" : "Toggle slideshow"},
+                "83" : { "key" : "s" , "cmd" : "Pathos.UI.SLIDESHOW_PLAY.trigger('click')", "description" : "Toggle slideshow"},
+                "115" : { "key" : "S" , "cmd" : "Pathos.UI.SLIDESHOW_PLAY.trigger('click')", "description" : "Toggle slideshow"},
 
                 "84" : { "key" : "t" , "cmd" : "Pathos.setTheme()", "description" : "Toggle theme"},
                 "116" : { "key" : "T" , "cmd" : "Pathos.setTheme()", "description" : "Toggle theme"},
