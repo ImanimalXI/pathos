@@ -67,6 +67,7 @@
 
   .section {
     .vertical-box(center,center);
+    position: relative;
   }
 
   .device {
@@ -176,7 +177,7 @@
 
   .list {
     list-style: none;
-    padding: 5px 10px 20px 10px;
+    padding: 5px 10px 10px 10px;
     margin: 5px 0;
 
     &.pages .selected {
@@ -230,7 +231,7 @@
     top: 10%;
     .size(110px,50%);
     .box(center,center);
-    left: 22%;
+    left: -130px;
     border-right: 1px solid @color_lighten2;
     font-style: italic;
     background: fadeout(@color-background, 20%);

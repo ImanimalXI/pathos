@@ -50,6 +50,7 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
                        "META":  $(".meta"),
                        "NOTIFICATION":  $(".notification"),
                        "PROJECTS_LIST_ITEMS":  (".list.projects li"),
+                       "PROJECTS_SELECT_PAGES":  $(".projects select"),
                        "PROJECT":  $(".list.projects a"),
                        "INPUT_EXTERNAL_URL":  $("input.external"),
                        "LOAD_EXTERNAL_URL":  $(".load"),
@@ -619,6 +620,13 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
                     e.preventDefault();
                     Pathos.hidePages();
                     Pathos.showPage($(this));
+                });
+
+                Pathos.UI.PROJECTS_SELECT_PAGES.live("change", function(e) {
+                    e.preventDefault();
+                    //Pathos.setTheme($(this).find('option:selected').text());
+                    Pathos.hidePages();
+                    Pathos.showPage($(this).find('option:selected'));
                 });
 
                 Pathos.UI.INSPECTOR_FILTER.bind("keyup", function(e) {
