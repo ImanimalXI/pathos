@@ -2,7 +2,7 @@ requirejs.config({
     baseUrl: 'js/'
 });
 
-requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"], function ($, devices, projects, LANG, SETTINGS, Showdown) {
+requirejs(["jquery", "deviceData", "projects", "lang/en", "../settings", "showdown"], function ($, devices, projects, LANG, SETTINGS, Showdown) {
 
 
     $(function() {
@@ -16,6 +16,7 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
             selectors: null,
             slideshowTime: (SETTINGS) ? parseInt(SETTINGS.SLIDESHOW.INTERVAL) : 3000,
             hashTime: (SETTINGS) ? parseInt(SETTINGS.HASH_OUT.INTERVAL) : 3000,
+            hashPlay: null,
 
             init: function() {
                 Pathos.setSelectors();
@@ -64,6 +65,7 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
                        "CHROME_TOOGLE": $(".list .chrome"),
                        "ROTATE": $(".list .rotate"),
                        "COMMENTS_TOGGLE": $(".list .comments"),
+                       "HASH_OUT_TOGGLE": $(".list .hash"),
                        "SLIDESHOW_PLAY": $(".list .play"),
                        "SHOW_ALL": $(".list .all"),
                        "SHOW_FRAME": $(".list .frame"),
@@ -127,12 +129,16 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
                     newViewportHeight = Pathos.UI.IFRAME.css('width');
 
                 Pathos.orientation === 'portrait' ? Pathos.orientation = "landscape" : "portrait";
-                Pathos.UI.IFRAME.addClass('transition_off');
+                if(Pathos.hashPlay === null) {
+                    Pathos.UI.IFRAME.addClass('transition_off');
+                }
                 Pathos.UI.SECTION.css({'width': newChromeWidth,'height': newChromeHeight});
                 Pathos.UI.IFRAME.css({'width': newViewportWidtht,'height':newViewportHeight});
-                window.setTimeout(function() {
-                    Pathos.UI.IFRAME.removeClass('transition_off');
-                }, SETTINGS.HASH_OUT.INTERVAL);
+                if(Pathos.hashPlay === null) {
+                    window.setTimeout(function() {
+                        Pathos.UI.IFRAME.removeClass('transition_off');
+                    }, SETTINGS.HASH_OUT.INTERVAL);
+                }
             },
 
             randomDevice: function() {
@@ -481,9 +487,20 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
             },
 
             hashOut: function() {
-                Pathos.hashPlay=setInterval(function() {
+                var nr = 0;
+                if(Pathos.hashPlay === null) {
                     Pathos.randomDevice();
-                }, Pathos.hashTime);
+                    Pathos.hashPlay=setInterval(function() {
+                        nr = Math.floor((Math.random()*10)+1);
+                        Pathos.randomDevice();
+                        if(nr > 8) {
+                            Pathos.deviceRotate();
+                        }
+                    }, Pathos.hashTime);
+                } else {
+                    clearInterval(Pathos.hashPlay);
+                    Pathos.hashPlay = null;
+                }
             },
 
             setTheme: function(theme) {
@@ -545,6 +562,16 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
                     }
                 });
 
+                Pathos.UI.HASH_OUT_TOGGLE.bind("click", function(e) {
+                    e.preventDefault();
+                    Pathos.hashOut();
+                    if(this.innerHTML===LANG.STOP_HASH_OUT) {
+                        this.innerHTML=LANG.HASH_OUT;
+                    } else {
+                        this.innerHTML=LANG.STOP_HASH_OUT;
+                    }
+                });
+
                 Pathos.UI.INDEX_TOGGLE.bind("click", function(e) {
                     e.preventDefault();
                     if(Pathos.UI.INDEX.hasClass('hidden')) {
@@ -600,6 +627,11 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "settings", "showdown"
                 Pathos.UI.KEY_COMMANDS.bind("click", function(e) {
                     e.preventDefault();
                     Pathos.UI.KEY_COMMANDS.toggle();
+                });
+
+                Pathos.UI.RELEASE_LOG.bind("click", function(e) {
+                    e.preventDefault();
+                    Pathos.UI.RELEASE_LOG.toggle();
                 });
 
                 Pathos.UI.RELEASE_LOG.bind("click", function(e) {

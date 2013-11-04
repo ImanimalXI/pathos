@@ -89,8 +89,8 @@ define(function(){
                 "84" : { "key" : "t" , "cmd" : "Pathos.setTheme()", "description" : "Toggle theme"},
                 "116" : { "key" : "T" , "cmd" : "Pathos.setTheme()", "description" : "Toggle theme"},
 
-                "85" : { "key" : "U" , "cmd" : "Pathos.hashOut()", "description" : "Hash out"},
-                "117" : { "key" : "u" , "cmd" : "Pathos.hashOut()", "description" : "Hash out"}
+                "85" : { "key" : "U" , "cmd" : "Pathos.UI.HASH_OUT_TOGGLE.trigger('click')", "description" : "Hash out"},
+                "117" : { "key" : "u" , "cmd" : "Pathos.UI.HASH_OUT_TOGGLE.trigger('click')", "description" : "Hash out"}
 
             }
         };
