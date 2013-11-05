@@ -2,7 +2,7 @@ requirejs.config({
     baseUrl: 'js/'
 });
 
-requirejs(["jquery", "deviceData", "projects", "lang/en", "../settings", "showdown"], function ($, devices, projects, LANG, SETTINGS, Showdown) {
+requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function ($, devices, projects, LANG, Showdown) {
 
 
     $(function() {
@@ -129,12 +129,12 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "../settings", "showdo
                     newViewportHeight = Pathos.UI.IFRAME.css('width');
 
                 Pathos.orientation === 'portrait' ? Pathos.orientation = "landscape" : "portrait";
-                if(Pathos.hashPlay === null) {
+                if(Pathos.hashPlay === null && SETTINGS.DEVICE_ROTATE_TRANSITION == 'false') {
                     Pathos.UI.IFRAME.addClass('transition_off');
                 }
                 Pathos.UI.SECTION.css({'width': newChromeWidth,'height': newChromeHeight});
                 Pathos.UI.IFRAME.css({'width': newViewportWidtht,'height':newViewportHeight});
-                if(Pathos.hashPlay === null) {
+                if(Pathos.hashPlay === null && SETTINGS.DEVICE_ROTATE_TRANSITION == 'false' ) {
                     window.setTimeout(function() {
                         Pathos.UI.IFRAME.removeClass('transition_off');
                     }, SETTINGS.HASH_OUT.INTERVAL);
@@ -161,9 +161,21 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "../settings", "showdo
 
                     if(device ===  devices[i].name) {
                         Pathos.UI.SECTION.hide();
+
+                        if(Pathos.hashPlay === null && SETTINGS.DEVICE_CHANGE_TRANSITION == 'false') {
+                            Pathos.UI.IFRAME.addClass('transition_off');
+                        }
+
                         Pathos.UI.SECTION.css({'width':devices[i].chrome.width,'height':devices[i].chrome.height});
                         Pathos.UI.IFRAME.css({'width':devices[i].viewport.width,'height':devices[i].viewport.height,'top':devices[i].viewport.top,'left':devices[i].viewport.left});
                         Pathos.UI.SECTION.css({'background':'url('+devices[i].img+')'}).show();
+
+                        if(Pathos.hashPlay === null && SETTINGS.DEVICE_CHANGE_TRANSITION === 'false' ) {
+                            window.setTimeout(function() {
+                                Pathos.UI.IFRAME.removeClass('transition_off');
+                            }, SETTINGS.HASH_OUT.INTERVAL);
+                        }
+
                         if( devices[i].img !== '' ) {
                             //Pathos.UI.IFRAME.removeClass('chrome');
                             Pathos.UI.FRAME_DEVICE.removeClass('hide');

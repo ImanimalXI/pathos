@@ -1,8 +1,5 @@
-define(function(){
 
-
-
-    return SETTINGS =
+    var SETTINGS =
 
         {
             //Load random device on Load, set to random or the name of the device
@@ -12,12 +9,17 @@ define(function(){
 
             "PROJECTS_PATH": "frames/",
 
-            //Orientation on load
+            //Device orientation on load - portrait or landscape
             "ORIENTATION" : "portrait",
 
             //"LANGUAGE": "en",
 
+            //Filter and do not load devices that do not fit the client viewport - true or false
             "FIT_TO_VIEWPORT" : "true",
+
+            //Display transition animation on device change - true or false
+            "DEVICE_ROTATE_TRANSITION" : "false",
+            "DEVICE_CHANGE_TRANSITION" : "true",
 
             "SLIDESHOW" : {
                 "INTERVAL" : "3000"
@@ -27,25 +29,25 @@ define(function(){
                 "INTERVAL" : "4000"
             },
 
-            //toggle next prev page
-            //"37" : "",
-            //"38" : "",
-            //"39" : "",
-
-            //prev next device
-            //"40" : "",
-            /*left = 37
-             up = 38
-             right = 39
-             down = 40*/
-
             THEMES : {
                 "ON_LOAD" : "beans",
                 "LIST" : [ "pathos", "beans"]
             },
 
-
             "KEYS" : {
+
+                //toggle next prev page
+                //"37" : "",
+                //"38" : "",
+                //"39" : "",
+
+                //prev next device
+                //"40" : "",
+
+                /*left = 37
+                 up = 38
+                 right = 39
+                 down = 40*/
 
                 "58" : { "key" : "0" , "cmd" : 'Pathos.showPage($(".list .frame")[9])', "description" : "Show Page 10"},
                 "49" : { "key" : "1" , "cmd" : 'Pathos.showPage($(".list .frame")[0])', "description" : "Show Page 1"},
@@ -96,5 +98,3 @@ define(function(){
         };
 
 
-
-});
