@@ -320,10 +320,11 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function 
             showComment: function(comment) {
                 if(comment && comment!=='') {
                     Pathos.UI.COMMENTS.text(comment).show();
-                    Pathos.UI.COMMENTS_TOGGLE.innerText=LANG.COMMENTS_SHOW;
+                    //Pathos.UI.COMMENTS_TOGGLE.show(100).text(LANG.COMMENTS_SHOW);
+                    Pathos.UI.COMMENTS_TOGGLE.show(100).text(LANG.COMMENTS_HIDE);
                 } else {
                     Pathos.UI.COMMENTS.hide(100);
-                    Pathos.UI.COMMENTS_TOGGLE.innerText=LANG.COMMENTS_HIDE;
+                    Pathos.UI.COMMENTS_TOGGLE.hide().text(LANG.COMMENTS_HIDE);
                 }
             },
 
