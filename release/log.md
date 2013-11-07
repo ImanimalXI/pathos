@@ -1,6 +1,14 @@
 ##Pathos Release Log
 
-###version (0.0.3)
+###version (0.0.4)
+* Device orientation
+* Highlight selected page in list
+* Themes. Support for themes. In settings, and UI. One additional theme created.
+* Bug - Fixed JSON error when loading project names with space
+* Moved Settings file, fixed so it's not minified
+* Various fixes and improvements
+
+###version (0.0.3)  (2013-10-29)
 * Settings file
 * Key commands
 * Various minor fixes
