@@ -106,7 +106,8 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function 
                     list = Pathos.UI.DEVICES,
                     length = devices.length,
                     selected = '',
-                    random = (SETTINGS.DEVICE_LOAD.toLowerCase()==="random") ? Math.floor((Math.random()*length)) : -1;
+                    //TODO Bug not selecting the device listed in settings
+                    random = (SETTINGS.DEVICE_LOAD.toLowerCase()==="random") ? Math.floor((Math.random()*length)) : 0;
 
                 list.innerHTML='';
                 //Filter devices that does not fit to current client viewport
@@ -526,15 +527,15 @@ requirejs(["jquery", "deviceData", "projects", "lang/en", "showdown"], function 
                         }
                     })
                 } else {
-                    //TODO query selector targeting option[selected] attribute instead
                     var section = Pathos.UI.THEMES.find("option.selected"),
+                        //TODO BUG toggle not selecting next in list
                         next = Pathos.UI.THEMES.find("option.selected").next();
                     if(next.length>0) {
                         section.removeClass('selected').removeAttr('selected').next().addClass('selected').attr('selected','selected');
                     } else {
-                        theme = Pathos.UI.THEMES.find('option').first().addClass('selected').attr('selected','selected').text();
+                        Pathos.UI.THEMES.find('option').first().addClass('selected').attr('selected','selected');
                     }
-                    document.querySelector('html').className=theme;
+                    document.querySelector('html').className=Pathos.UI.THEMES.find('option').first().addClass('selected').attr('selected','selected').text();
                 }
             },
 

@@ -74,9 +74,9 @@
     background: url("../img/device/iphone4.png");
     .size(380px,744px);
     .box(center,center);
-  }
-  .device.hide {
-    background: #fff !important;
+    &.hide {
+      background: #fff !important;
+    }
   }
 
   .page {
@@ -181,7 +181,11 @@
     margin: 5px 0;
 
     &.pages .selected {
-      font-weight: bold;
+      margin-left: -10px;
+
+      &:before {
+        content:'>'
+      }
     }
 
     select {
