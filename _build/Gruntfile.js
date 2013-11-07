@@ -187,6 +187,9 @@ module.exports = function(grunt) {
                      // Copy the relase log from dev/font/ to prod/font/.
                     { expand: true, cwd: '<%= DEVELOPMENT_PATH %>', src: ['log.md'], dest: '<%= PRODUCTION_PATH %>' },
 
+                    // Copy the settings file from dev/ to prod/
+                    { expand: true, cwd: '<%= DEVELOPMENT_PATH %>', src: ['settings.js'], dest: '<%= PRODUCTION_PATH %>' },
+
                 ]
             }
 
