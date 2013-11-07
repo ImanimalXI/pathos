@@ -1,10 +1,12 @@
-<html>
+<html class="pathos">
 <head>
 	<title>Pathos</title>
 	<link rel="stylesheet" href="css/shell.css" />
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
     <link href="css/font-awesome.min.css" rel="stylesheet">
 	<meta charset="utf-8">
+
+    <script  src="settings.js"></script>
 
     
 
@@ -19,9 +21,6 @@
 	<div class="index">
         <div class="icon-list toggle"></div>
         <h2 class="client">Projects</h2>
-        <!--<select name="">
-            <option value="">Test 1</option>
-        </select>-->
         <ul class="list projects"></ul>
         <h2 class="">Pages</h2>
         <div class="projects"></div>
@@ -30,8 +29,16 @@
         </select>
 		<ul class="list">
 			<li><a href="#" class="link chrome">Toggle Device Chrome</a></li>
+			<li><a href="#" class="link rotate">Rotate Device</a></li>
 			<li><a href="#" class="link css">Toggle CSS</a></li>
-			<li><a href="#" class="link comments">Hide Comments</a></li>
+			<li>
+                <a href="#" class="link">Theme:
+                <select class="list themes">
+                </select>
+                </a>
+            </li>
+            <li><a href="#" class="link comments">Hide Comments</a></li>
+			<li><a href="#" class="link hash">Hash out</a></li>
 			<li><a href="#" class="link all">Show All</a></li>
 			<li><a href="#" class="link play">Slideshow</a></li>
 		</ul>
@@ -54,8 +61,8 @@
 		</div>
 		<div class="label"></div>
         <div class="comment" style="display: none"></div>
-        <div class="meta" style="display: none"></div>
 	</div>
+    <div class="meta" style="display: none"></div>
 
     <div class="inspector">
         <input class="filter" type="" placeholder="filter css"/>
